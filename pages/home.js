@@ -1,9 +1,8 @@
-import HomePage from "./home";
 import { getSession } from "next-auth/react";
 
-export default function Home() {
-  return <HomePage />;
-}
+const HomePage = (props) => {
+  return <div>I am Logged In</div>;
+};
 export async function getServerSideProps(context) {
   const session = await getSession({ req: context.req });
   if (!session) {
@@ -19,3 +18,4 @@ export async function getServerSideProps(context) {
     props: { session },
   };
 }
+export default HomePage;
