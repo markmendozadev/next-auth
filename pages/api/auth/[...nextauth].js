@@ -4,7 +4,7 @@ import { verifyPassword } from "../../../lib/auth";
 import { connectDb } from "../../../lib/db";
 import GitHubProvider from "next-auth/providers/github";
 import { MongoDBAdapter } from "@next-auth/mongodb-adapter";
-import clientPromise from "../../../lib/mongodb";
+import clientPromise from "../../../lib/db";
 import FacebookProvider from "next-auth/providers/facebook";
 
 export default NextAuth({
@@ -15,7 +15,7 @@ export default NextAuth({
   adapter: MongoDBAdapter(clientPromise),
   providers: [
     GitHubProvider({
-      clientId: process.env.NEXT_PUBLIC_MONGO_URI,
+      clientId: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
     }),
     FacebookProvider({

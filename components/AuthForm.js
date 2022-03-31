@@ -17,8 +17,7 @@ const AuthForm = () => {
     setPassword(e.target.value);
   };
   const signInHandler = async (id) => {
-    const res = await signIn(id, { redirect: false });
-    console.log(res);
+    const res = await signIn(id, { callbackUrl: "/" });
   };
   const submitHandler = async (e) => {
     e.preventDefault();
