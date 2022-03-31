@@ -11,7 +11,7 @@ export default NextAuth({
   session: {
     strategy: "jwt",
   },
-  database: process.env.NEXTAUTH_URL,
+  database: process.env.MONGO_URI,
   adapter: MongoDBAdapter(clientPromise),
   providers: [
     GitHubProvider({
